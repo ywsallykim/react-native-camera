@@ -621,6 +621,9 @@ class Camera1 extends CameraViewImpl implements MediaRecorder.OnInfoListener,
             try{
                 if(mCamera != null){
                     mCamera.setParameters(mCameraParameters);
+                    if (mCamera.isAutoExposureLockSupported()) {
+                        mCamera.setAutoExposureLock(true);
+                    }
                 }
             }
             catch(RuntimeException e ) {
